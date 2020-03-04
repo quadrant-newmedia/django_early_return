@@ -1,27 +1,17 @@
-# APP_NAME
+# django_early_return
 
-This is a "seed" project for creating a reusable django app.
-It aids with packaging the project for pypi, pushing to GitHub, and automating tests using tox.
+## Installation
 
-For a more advanced setup, see https://www.b-list.org/weblog/2018/apr/02/testing-django/
+- `pip install django_early_return`
+- add `'django_early_return.EarlyReturnMiddleware'` to `MIDDLEWARE` in your settings
+- optionally, add `'django_early_return'` to `INSTALLED_APPS`, if you want to run our tests when executing `python manage.py test`
 
-For the python documentation on packagin, see https://packaging.python.org/tutorials/packaging-projects/
+## Usage
 
-## How To Use:
-- clone this repo, then delete the origin remote
-- do a search and replace on this project, replacing APP_NAME with the actual name of your app
-- rename the APP_NAME directory
-- create venv
-- run: pip install -r requirements.txt
-- run: tox (verify that the tests are working)
-- verify setup.py
+Any view code (or middleware code, if that middleware is installed after EarlyReturnMiddleware) can now instantiate EarlyReturn with any HttpResponse, and that response will be returned to the user:
+```python
+    if not request.user.has_perm('my_app.some_permission'):
+        raise django_early_return.EarlyReturn(http.HttpResponseForbidden)
+```
 
-When you are ready to build and push to pypi/remote repo (after running tests):
-- update version number
-- update RELEASE_NOTES.md
-- commit everything to git
-- run build_and_push
-
-## About django/dummy_project
-
-This project contains a simple dummy django project, with complete settings. These files are not packed with distribution. They enable you run django's dev server, if needed, while developing.
+For code in helper functions/middleware/etc., this is often more convenient than passing a response back to the actual view code.

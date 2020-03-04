@@ -4,15 +4,15 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="APP_NAME",
+    name="django_early_return",
     version="0.0.0",
     author="Alex Fischer",
     author_email="alex@quadrant.net",
-    description="A django path() replacement enabling truly dynamic urls",
+    description="Allows view code to exit early and return a given HttpResponse by raising an exception",
     long_description=long_description,
     long_description_content_type="text/markdown",
     # url="TODO",
-    packages=['APP_NAME', 'APP_NAME.tests'],
+    packages=['django_early_return', 'django_early_return.tests'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
