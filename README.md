@@ -11,7 +11,7 @@
 Any view code (or middleware code, if that middleware is installed after EarlyReturnMiddleware) can now instantiate EarlyReturn with any HttpResponse, and that response will be returned to the user:
 ```python
     if not request.user.has_perm('my_app.some_permission'):
-        raise django_early_return.EarlyReturn(http.HttpResponseForbidden)
+        raise django_early_return.EarlyReturn(http.HttpResponseForbidden())
 ```
 
 For code in helper functions/middleware/etc., this is often more convenient than passing a response back to the actual view code.

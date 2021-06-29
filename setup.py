@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="django_early_return",
-    version="0.0.0",
+    version="0.0.1",
     author="Alex Fischer",
     author_email="alex@quadrant.net",
     description="Allows view code to exit early and return a given HttpResponse by raising an exception",
@@ -19,5 +19,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
-    install_requires=["Django>=2.2,<3.1"],
+    install_requires=["Django>=2.2,<4"],
 )
