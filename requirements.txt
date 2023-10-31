@@ -1,3 +1,5 @@
-Django~=2.2
+setuptools
+wheel
+Django~=4.2
 tox
 twine
