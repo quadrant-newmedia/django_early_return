@@ -1,4 +1,4 @@
-## 0.2.0
+## 0.3.0
 Added type annotations
 
 ## 0.1.0

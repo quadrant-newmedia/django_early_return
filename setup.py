@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="django_early_return",
-    version="0.2.0",
+    version="0.3.0",
     author="Alex Fischer",
     author_email="alex@quadrant.net",
     description="Allows view code to exit early and return a given HttpResponse by raising an exception",
@@ -13,6 +13,9 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     # url="TODO",
     packages=["django_early_return", "django_early_return.tests"],
+    package_data={
+        "django_early_return": ["py.typed"],
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
