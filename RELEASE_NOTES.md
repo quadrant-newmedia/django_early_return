@@ -1,4 +1,7 @@
-##
+## 0.2.0
+Added type annotations
+
+## 0.1.0
 Add explicit support for django 4
 
 ### 0.0.1
